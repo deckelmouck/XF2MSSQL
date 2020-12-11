@@ -1,0 +1,6 @@
+{
+  "DataSource": "localhost\\SQLEXPRESS",
+  "InitialCatalog": "AdventureWorks2016",
+  "UserID": "user",
+  "Password": "passw0rd"
+}

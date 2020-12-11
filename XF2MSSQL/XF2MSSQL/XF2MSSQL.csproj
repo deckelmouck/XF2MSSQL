@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
@@ -11,7 +11,19 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="settings.json.default" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
+    <PackageReference Include="System.Data.SqlClient" Version="4.8.2" />
     <PackageReference Include="Xamarin.Forms" Version="4.8.0.1451" />
     <PackageReference Include="Xamarin.Essentials" Version="1.5.3.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="settings.json.default" />
+    <EmbeddedResource Include="settings.json" Condition="'$(Configuration)' != 'Debug' or !Exists('local.settings.json')" />
+    <EmbeddedResource Include="local.settings.json" Link="settings.json" Condition="'$(Configuration)' == 'Debug' and Exists('local.settings.json')" />
   </ItemGroup>
 </Project>
