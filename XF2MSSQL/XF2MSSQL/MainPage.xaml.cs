@@ -23,5 +23,14 @@ namespace XF2MSSQL
             myLabel.Text = SQLreturn;
 
         }
+
+        public string GetSQLConnection()
+        {
+            string conn = "";
+
+
+
+            return conn;
+        }
     }
 }
