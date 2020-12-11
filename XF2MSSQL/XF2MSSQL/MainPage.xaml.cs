@@ -15,10 +15,12 @@ namespace XF2MSSQL
     public partial class MainPage : ContentPage
     {
         public string SQLreturn { get; set; }
+        public int BusinessEntityID { get; set; }
 
         public MainPage()
         {
             InitializeComponent();
+            BusinessEntityID = 1;
         }
 
         private void Button_Clicked(object sender, EventArgs e)
@@ -26,8 +28,41 @@ namespace XF2MSSQL
             SQLreturn = "try SQL query";
             myLabel.Text = SQLreturn;
 
-            myLabel.Text = GetSQLConnection();
+            //myLabel.Text = GetSQLConnection();
 
+            ConnectSQL(GetSQLConnection());
+
+            BusinessEntityID++;
+        }
+
+        public void ConnectSQL(string connection)
+        {
+            try
+            {
+                using(SqlConnection sqlConnection = new SqlConnection(connection))
+                {
+                    sqlConnection.Open();
+
+                    SqlCommand sqlCommand = new SqlCommand();
+
+                    sqlCommand.Connection = sqlConnection;
+                    sqlCommand.CommandType = System.Data.CommandType.Text;
+                    sqlCommand.CommandText = string.Format("select FirstName from person.person where BusinessEntityID = {0}", BusinessEntityID.ToString());
+
+                    SqlDataReader sqlDataReader = sqlCommand.ExecuteReader();
+
+                    while (sqlDataReader.Read())
+                    {
+                        myLabel.Text = sqlDataReader.GetString(0);
+                    }
+                    sqlDataReader.Close();
+                }
+            }
+            catch (Exception ex)
+            {
+
+                throw;
+            }
         }
 
         public string GetSQLConnection()
