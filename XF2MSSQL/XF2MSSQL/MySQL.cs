@@ -70,7 +70,7 @@ namespace XF2MSSQL
             string connection = GetSQLConnection();
             List<Person> personList = new List<Person>();
 
-            string sqlQuery = "select top 20 FirstName from person.person";
+            string sqlQuery = "select BusinessEntityID, FirstName, LastName from person.person where BusinessEntityID < 50";
 
             try
             {
@@ -88,7 +88,7 @@ namespace XF2MSSQL
 
                     while (sqlDataReader.Read())
                     {
-                        personList.Add(new Person { Name = sqlDataReader.GetString(0) });
+                        personList.Add(new Person(sqlDataReader.GetInt32(0), sqlDataReader.GetString(1), sqlDataReader.GetString(2)));
                     }
                     sqlDataReader.Close();
                 }

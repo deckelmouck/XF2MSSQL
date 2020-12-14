@@ -8,7 +8,10 @@ namespace XF2MSSQL.ViewModels
 {
     public class PersonViewModel : BaseViewModel
     {
-        public string Name { get; set; }
+        public string Name { get; private set; }
+        public int BusinessEntityID { get; set; }
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
 
         private bool _isFavorite;
 
@@ -30,6 +33,9 @@ namespace XF2MSSQL.ViewModels
 
         public PersonViewModel(Person person)
         {
+            BusinessEntityID = person.BusinessEntityID;
+            FirstName = person.FirstName;
+            LastName = person.LastName;
             Name = person.Name;
         }
     }
