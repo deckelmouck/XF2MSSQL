@@ -41,5 +41,10 @@ namespace XF2MSSQL
             await Navigation.PushAsync(new PersonList());
         }
 
+        async void openProducts(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new ProductList());
+        }
+
     }
 }

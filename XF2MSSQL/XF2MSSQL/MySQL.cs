@@ -100,5 +100,44 @@ namespace XF2MSSQL
                 throw;
             }
         }
+
+        public List<Product> GetListProducts()
+        {
+            string connection = GetSQLConnection();
+            List<Product> productList = new List<Product>();
+
+            string sqlQuery = "SELECT ProductID, Name, ProductNumber FROM Production.Product";
+
+            try
+            {
+                using (SqlConnection sqlConnection = new SqlConnection(connection))
+                {
+                    sqlConnection.Open();
+
+                    SqlCommand sqlCommand = new SqlCommand();
+
+                    sqlCommand.Connection = sqlConnection;
+                    sqlCommand.CommandType = System.Data.CommandType.Text;
+                    sqlCommand.CommandText = sqlQuery;
+
+                    SqlDataReader sqlDataReader = sqlCommand.ExecuteReader();
+
+                    while (sqlDataReader.Read())
+                    {
+                        productList.Add(new Product() {
+                            ProductID = sqlDataReader.GetInt32(0),
+                            Name = sqlDataReader.GetString(1),
+                            ProductNumber = sqlDataReader.GetString(2) });
+                    }
+                    sqlDataReader.Close();
+                }
+                return productList;
+            }
+            catch (Exception ex)
+            {
+
+                throw;
+            }
+        }
     }
 }

@@ -11,6 +11,7 @@
         <Label x:Name="myLabel" Text="initial Text" FontSize="16" Padding="30,0,30,0"/>
         <Button Text="try SQL" Clicked="Button_Clicked" />
         <Button Text="List of Persons" Clicked="openPersonList" />
+        <Button Text="Products" Clicked="openProducts" />
     </StackLayout>
 
 </ContentPage>
