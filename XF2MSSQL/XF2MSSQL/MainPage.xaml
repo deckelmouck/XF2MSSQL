@@ -4,14 +4,27 @@
              x:Class="XF2MSSQL.MainPage">
 
     <StackLayout>
-        <Frame BackgroundColor="#2196F3" Padding="24" CornerRadius="0">
-            <Label Text="Welcome to Xamarin.Forms!" HorizontalTextAlignment="Center" TextColor="White" FontSize="36"/>
-        </Frame>
-        <Label Text="Start developing now" FontSize="Title" Padding="30,10,30,10"/>
+        <!--<Frame BackgroundColor="#2196F3" Padding="24" CornerRadius="0">
+            <Label Text="Welcome to Xamarin.Forms!" HorizontalTextAlignment="Center" TextColor="White" FontSize="10"/>
+        </Frame>-->
+        <!--<Label Text="Reader name:" FontSize="Title" Padding="30,10,30,10"/>-->
         <Label x:Name="myLabel" Text="initial Text" FontSize="16" Padding="30,0,30,0"/>
-        <Button Text="try SQL" Clicked="Button_Clicked" />
-        <Button Text="List of Persons" Clicked="openPersonList" />
-        <Button Text="Products" Clicked="openProducts" />
+        <!--<Button Text="try SQL" Clicked="Button_Clicked" />-->
+        <!--<Button Text="List of Persons" Clicked="openPersonList" />-->
+        <!--<Button Text="Products" Clicked="openProducts" />-->
+        <Entry Text="enter here"/>
+
+        <Label Text="Reader Name:" VerticalOptions="Center"/>
+        <Picker x:Name="mReaderPicker"/>
+        <Label x:Name="ReaderOnLabel" Text="Open Reader:"/>
+        <Switch x:Name="mOpenReaderSwitch" IsToggled="False" HorizontalOptions="StartAndExpand" Toggled="OpenReaderSwitch_Toggled"/>
+        <Label x:Name="mEnableScanningLabel" Text="Enable Scanning:" IsEnabled="false" VerticalOptions="Center"/>
+        <Switch x:Name="mEnableScanningSwitch" IsToggled="false" IsEnabled="false" Toggled="EnableScanningSwitch_Toggled"/>
+
+        <Editor Grid.Row="0" x:Name="mScanDataEditor" TextColor="Red" HorizontalOptions="Fill" VerticalOptions="Fill"/>
+        <Label Grid.Row="1" x:Name="mSymbologyLabel" HorizontalTextAlignment="Start"/>
+        <Label Grid.Row="2" x:Name="mTimestampLabel" HorizontalTextAlignment="Start"/>
     </StackLayout>
+
 
 </ContentPage>
