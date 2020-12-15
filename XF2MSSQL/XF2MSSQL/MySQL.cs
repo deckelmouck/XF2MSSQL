@@ -106,7 +106,7 @@ namespace XF2MSSQL
             string connection = GetSQLConnection();
             List<Product> productList = new List<Product>();
 
-            string sqlQuery = "SELECT ProductID, Name, ProductNumber FROM Production.Product";
+            string sqlQuery = "SELECT ProductID, Name, ProductNumber, MakeFlag FROM Production.Product";
 
             try
             {
@@ -127,11 +127,41 @@ namespace XF2MSSQL
                         productList.Add(new Product() {
                             ProductID = sqlDataReader.GetInt32(0),
                             Name = sqlDataReader.GetString(1),
-                            ProductNumber = sqlDataReader.GetString(2) });
+                            ProductNumber = sqlDataReader.GetString(2),
+                            MakeFlag = sqlDataReader.GetBoolean(3)
+                        });
                     }
                     sqlDataReader.Close();
                 }
                 return productList;
+            }
+            catch (Exception ex)
+            {
+
+                throw;
+            }
+        }
+
+        public int UpdateValue(string sqlQuery)
+        {
+            int ret;
+            string connection = GetSQLConnection();
+
+            try
+            {
+                using (SqlConnection sqlConnection = new SqlConnection(connection))
+                {
+                    sqlConnection.Open();
+
+                    SqlCommand sqlCommand = new SqlCommand();
+
+                    sqlCommand.Connection = sqlConnection;
+                    sqlCommand.CommandType = System.Data.CommandType.Text;
+                    sqlCommand.CommandText = sqlQuery;
+
+                    ret = sqlCommand.ExecuteNonQuery();
+                }
+                return ret;
             }
             catch (Exception ex)
             {

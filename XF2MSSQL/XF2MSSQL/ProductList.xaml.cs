@@ -64,5 +64,16 @@ namespace XF2MSSQL
 
             DisplayAlert("Product", product.ProductNumber, "OK");
         }
+
+        private void OnMakeFlagClicked(object sender, EventArgs e)
+        {
+            var menuItem = sender as MenuItem;
+            var product = menuItem.CommandParameter as Product;
+                        
+            if(product.UpdateMakeFlag(product) == 1)
+            {
+                DisplayAlert("Product", "MakeFlag has been updated!", "OK");
+            }
+        }
     }
 }

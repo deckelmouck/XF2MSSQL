@@ -13,6 +13,7 @@
                                   Detail="{Binding ProductNumber}">
                             <TextCell.ContextActions>
                                 <MenuItem Text="Test" CommandParameter="{Binding .}" Clicked="OnTestClicked" />
+                                <MenuItem Text="MakeFlag" CommandParameter="{Binding .}" Clicked="OnMakeFlagClicked" />
                             </TextCell.ContextActions>
                         </TextCell>
                     </DataTemplate>
