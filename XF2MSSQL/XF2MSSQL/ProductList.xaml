@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="XF2MSSQL.ProductList">
+    <ContentPage.Content>
+        <StackLayout>
+            <Label Text="Products" />
+            <ListView x:Name="lvProducts"
+                      ItemSelected="OnItemSelect">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <TextCell Text="{Binding Name}"
+                                  Detail="{Binding ProductNumber}">
+                            <TextCell.ContextActions>
+                                <MenuItem Text="Test" CommandParameter="{Binding .}" Clicked="OnTestClicked" />
+                                <MenuItem Text="MakeFlag" CommandParameter="{Binding .}" Clicked="OnMakeFlagClicked" />
+                            </TextCell.ContextActions>
+                        </TextCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
