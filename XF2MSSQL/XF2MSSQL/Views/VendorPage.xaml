@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="XF2MSSQL.Views.VendorPage">
+    <ContentPage.Content>
+        <StackLayout>
+            <Label Text="Welcome to Xamarin.Forms!"
+                VerticalOptions="Center" 
+                HorizontalOptions="Center"
+                BackgroundColor="Gray"
+                HeightRequest="50"
+                VerticalTextAlignment="Center"/>
+            <Grid BackgroundColor="Beige" VerticalOptions="FillAndExpand">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+                <Label Grid.Row="1" Grid.Column="0" Text="BusinessEnityID:" />
+                <Entry Grid.Row="1" Grid.Column="1" Text="{Binding BusinessEntityID}" IsReadOnly="True" />
+                <Label Grid.Row="2" Grid.Column="0" Text="AccountNumber:" />
+                <Entry Grid.Row="2" Grid.Column="1" Text="{Binding AccountNumber}" IsReadOnly="True" />
+                <Label Grid.Row="3" Grid.Column="0" Text="Name:" />
+                <Entry Grid.Row="3" Grid.Column="1" Text="{Binding Name}" IsReadOnly="True" />
+                <Label Grid.Row="4" Grid.Column="0" Text="CreditRating:" />
+                <Entry Grid.Row="4" Grid.Column="1" Text="{Binding CreditRating}" Keyboard="Numeric" />
+                <Label Grid.Row="5" Grid.Column="0" Text="ActiveFlag:" />
+                <Switch Grid.Row="5" Grid.Column="1" HorizontalOptions="Center" IsToggled="{Binding ActiveFlag}" />
+            </Grid>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

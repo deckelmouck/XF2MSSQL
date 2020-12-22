@@ -12,7 +12,7 @@
         <!--<Button Text="try SQL" Clicked="Button_Clicked" />-->
         <!--<Button Text="List of Persons" Clicked="openPersonList" />-->
         <!--<Button Text="Products" Clicked="openProducts" />-->
-        <Entry Text="enter here"/>
+        <!--<Entry Text="enter here"/>-->
 
         <Label Text="Reader Name:" VerticalOptions="Center"/>
         <Picker x:Name="mReaderPicker"/>
@@ -24,6 +24,7 @@
         <Editor Grid.Row="0" x:Name="mScanDataEditor" TextColor="Red" HorizontalOptions="Fill" VerticalOptions="Fill"/>
         <Label Grid.Row="1" x:Name="mSymbologyLabel" HorizontalTextAlignment="Start"/>
         <Label Grid.Row="2" x:Name="mTimestampLabel" HorizontalTextAlignment="Start"/>
+        <Button Text="VendorDetails" Clicked="Button_Clicked_1" />
     </StackLayout>
 
 

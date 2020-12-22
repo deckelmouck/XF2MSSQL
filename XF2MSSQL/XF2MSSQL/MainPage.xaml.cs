@@ -12,6 +12,7 @@ using Xamarin.Forms;
 using Honeywell.AIDC.CrossPlatform;
 using System.Threading;
 using Xamarin.Essentials;
+using XF2MSSQL.Views;
 
 namespace XF2MSSQL
 {
@@ -167,11 +168,30 @@ namespace XF2MSSQL
                 mSoftOneShotScanStarted = false;
             }
         }
-        private void UpdateBarcodeInfo(string data, string symbology, DateTime timestamp)
+        async void UpdateBarcodeInfo(string data, string symbology, DateTime timestamp)
         {
             mScanDataEditor.Text = data;
             mSymbologyLabel.Text = "Symbology: " + symbology;
             mTimestampLabel.Text = "Timestamp: " + timestamp.ToString();
+
+            
+            if(Application.Current.MainPage.Navigation.NavigationStack.Count == 1)
+            {
+                //await DisplayAlert("nav", Application.Current.MainPage.Navigation.NavigationStack.Count.ToString(), "OK");
+
+                if (data.Contains("10."))
+                {
+                    //openProducts();
+                    await Navigation.PushAsync(new ProductList());
+                }
+                else if (data.Contains("40."))
+                {
+                    //openPersonList();
+                    await Navigation.PushAsync(new PersonList());
+                }
+            }
+
+
         }
 
         public async void CloseBarcodeReader()
@@ -282,6 +302,11 @@ namespace XF2MSSQL
             {
                 await DisplayAlert("Error", "Symbology settings failed. Message: " + exp.Message, "OK");
             }
+        }
+
+        async void Button_Clicked_1(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new VendorsPage());
         }
 
         private async void EnableScanningSwitch_Toggled(object sender, ToggledEventArgs e)
