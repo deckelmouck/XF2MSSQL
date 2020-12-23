@@ -40,7 +40,7 @@ namespace XF2MSSQL.ViewModels
                 }),
                 new VendorViewModel(new Models.Vendor
                 {
-                    BusinessEntityID = 1,
+                    BusinessEntityID = 2,
                     AccountNumber = " ",
                     Name = "Special Two",
                     CreditRating = 0,
@@ -48,23 +48,23 @@ namespace XF2MSSQL.ViewModels
                 }),
                 new VendorViewModel(new Models.Vendor
                 {
-                    BusinessEntityID = 1,
+                    BusinessEntityID = 3,
                     AccountNumber = " ",
                     Name = "Special Three",
                     CreditRating = 0,
-                    ActiveFlag = true
+                    ActiveFlag = false
                 }),
                 new VendorViewModel(new Models.Vendor
                 {
-                    BusinessEntityID = 1,
+                    BusinessEntityID = 4,
                     AccountNumber = " ",
                     Name = "Special Four",
                     CreditRating = 0,
-                    ActiveFlag = true
+                    ActiveFlag = false
                 }),
                 new VendorViewModel(new Models.Vendor
                 {
-                    BusinessEntityID = 1,
+                    BusinessEntityID = 5,
                     AccountNumber = " ",
                     Name = "Special Five",
                     CreditRating = 0,

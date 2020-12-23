@@ -5,31 +5,20 @@
              x:Class="XF2MSSQL.Views.VendorsPage">
   <ListView x:Name="MyListView"
             ItemsSource="{Binding Vendors}"
-            ItemTapped="Handle_ItemTapped"
-            CachingStrategy="RecycleElement">
-    <!--Built in Cells-->
-    <ListView.ItemTemplate>
-        <DataTemplate>
-            <TextCell Text="{Binding Name}"
+            CachingStrategy="RecycleElement"
+            ItemTapped="Handle_ItemTapped">
+        <!--Built in Cells-->
+        <ListView.ItemTemplate>
+            <DataTemplate>
+                <TextCell Text="{Binding Name}"
                       Detail="{Binding Account}">
-            </TextCell>
-        </DataTemplate>
-    </ListView.ItemTemplate>
-    
-    <!--Custom View Cells-->
-    <!--
-    <ListView.ItemTemplate>
-      <DataTemplate>
-        <ViewCell>
-          <StackLayout>
-            <Label Text="{Binding Text}" 
-                   Style="{DynamicResource ListItemTextStyle}" />
-            <Label Text="{Binding Detail}" 
-                   Style="{DynamicResource ListItemDetailTextStyle}"/>
-          </StackLayout>
-        </ViewCell>
-      </DataTemplate>
-    </ListView.ItemTemplate>
-    -->
-  </ListView>
+                    <TextCell.ContextActions>
+                        <MenuItem Text="Details" 
+                                  Command="{Binding OpenVendorCommand}"
+                                  CommandParameter="{Binding .}" />
+                    </TextCell.ContextActions>
+                </TextCell>
+            </DataTemplate>
+        </ListView.ItemTemplate>
+    </ListView>
 </ContentPage>
