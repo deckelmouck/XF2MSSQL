@@ -5,8 +5,8 @@
              x:Class="XF2MSSQL.Views.VendorsPage">
     <ListView x:Name="MyListView"
             ItemsSource="{Binding Vendors}"
-            CachingStrategy="RecycleElement"
-            ItemTapped="Handle_ItemTapped">
+            CachingStrategy="RecycleElement">
+        <!--ItemTapped="Handle_ItemTapped">-->
         <!--Built in Cells-->
         <ListView.ItemTemplate>
             <DataTemplate>
@@ -14,7 +14,7 @@
                       Detail="{Binding Account}">
                     <TextCell.ContextActions>
                         <MenuItem Text="Details" 
-                                  Command="{Binding OpenVendorCommand}"
+                                  Command="{Binding Path=BindingContext.OpenVendorCommand, Source={x:Reference Name=MyListView}}"
                                   CommandParameter="{Binding .}" />
                     </TextCell.ContextActions>
                 </TextCell>
