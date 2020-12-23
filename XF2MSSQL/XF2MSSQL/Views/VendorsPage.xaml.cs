@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using XF2MSSQL.Models;
 using XF2MSSQL.ViewModels;
 
 namespace XF2MSSQL.Views
@@ -42,7 +43,7 @@ namespace XF2MSSQL.Views
             //await DisplayAlert("Item Tapped", "An item was tapped.", "OK");
             //await Navigation.PushAsync(new VendorPage((VendorViewModel)sender ));
 
-            var vm = (VendorViewModel)e.Item;
+            var vm = (Vendor)e.Item;
 
             var test = (VendorsViewModel)this.BindingContext;
 

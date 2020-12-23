@@ -14,7 +14,7 @@ namespace XF2MSSQL.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class VendorPage : ContentPage
     {
-        public VendorPage(VendorViewModel vendor)
+        public VendorPage(Vendor vendor)
         {
             //Vendor vendor = new Vendor {
             //    BusinessEntityID = 1,
@@ -24,7 +24,7 @@ namespace XF2MSSQL.Views
             //    ActiveFlag = true
             //};
 
-            BindingContext = vendor; // new VendorViewModel(vendor);
+            BindingContext = new VendorViewModel(vendor);
 
             InitializeComponent();
         }
